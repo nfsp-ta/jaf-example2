@@ -1,4 +1,4 @@
-# jaf-example1
+# jaf-example2
 
 ## Project setup
 ```
