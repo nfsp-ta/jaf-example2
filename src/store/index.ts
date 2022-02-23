@@ -1,14 +1,13 @@
 import { createStore } from 'vuex';
+import registerCustomerModule from './modules/customer-module';
 
-export default createStore({
-  state: {
-  },
-  getters: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  },
+const store = createStore({
+  state: {},
+  mutations: {},
+  actions: {},
+  modules: {},
 });
+
+registerCustomerModule(store);
+
+export default store;

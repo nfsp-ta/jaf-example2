@@ -1,30 +1,37 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <Menubar :model="items" class="bg-blue-700 border-noround text-white" />
   </nav>
-  <router-view/>
+  <main >
+    <router-view />
+  </main>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script setup lang="ts">
+import { ref } from 'vue';
 
-nav {
-  padding: 30px;
-}
+const items = ref([{
+  label: 'Customers',
+  icon: 'pi pi-user',
+  to: { name: 'customerView' },
+}]);
+</script>
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+<style scoped>
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+  main {
+    padding: 80px 24px;
+  }
+  nav > div.p-menubar.text-white ::v-deep(li.p-menuitem > a.p-menuitem-link *) {
+    color: lightgray;
+  }
+  nav:hover > div.p-menubar.text-white ::v-deep(li.p-menuitem > a.p-menuitem-link:hover *) {
+    color: white;
+  }
 </style>
