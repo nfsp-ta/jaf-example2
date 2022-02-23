@@ -1,4 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
+import { API_ROOT } from './endpoints';
 
 let axiosConnection: AxiosInstance | null = null;
 
@@ -10,17 +11,15 @@ const headers = {
   'X-Requested-With': 'XMLHttpRequest',
 };
 
-// const baseURL = 'https://my.api.mockaroo.com/';
-const baseURL = 'https://example-data.draftbit.com/';
 const additionalParams = {
   // key: 'e95894a0',
-  _limit: 10,
+  _limit: 12,
 };
 
 const initConnection = () => {
   axiosConnection = axios.create({
     withCredentials: false,
-    baseURL,
+    baseURL: API_ROOT,
     headers,
     params: additionalParams,
   });
